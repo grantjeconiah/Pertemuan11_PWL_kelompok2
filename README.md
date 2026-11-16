@@ -3,4 +3,7 @@
 Project Pemrograman Web Lanjutan I.
 
 ## Anggota Kelompok
-- Grant
+- Grant Jeconiah (422025022)
+- Felix Ji Sui Thian (422025025)
+- Chendra Frendianata (422025003)
+- Justin Jonathan (422025005)
