@@ -1,6 +1,7 @@
 <?php
 // Catatan: nama file harus sama persis (huruf besar/kecil) dengan nama class.
 require_once "mahasiswa.php";
+require_once "functions.php";
 
 // Fungsi bantu supaya output aman di HTML.
 function e(string $teks): string
@@ -13,6 +14,9 @@ $andi  = new Mahasiswa("422025001", "Andi Wijaya", "andi@mail.com");
 $budi  = new Mahasiswa("412024015", "Budi Santoso", "budi@mail.com");
 $citra = new Mahasiswa("222023020", "Citra Lestari", "citra@mail.com");
 $dewi  = new Mahasiswa("992025003", "Dewi Anggraini", "dewi@mail.com"); 
+
+//Object Helper
+$helper = new MahasiswaHelper();
 
 $daftar = [$andi, $budi, $citra, $dewi];
 
@@ -110,6 +114,18 @@ try {
     echo '<p>' . e($err->getMessage()) . '</p>';
 }
 ?>
+
+<h2>6. Demo Class MahasiswaHelper (functions.php)</h2>
+<p>Total Mahasiswa Terdaftar: <strong><?= $helper->hitungTotal($daftar) ?> orang</strong></p>
+<ul>
+    <?php foreach ($daftar as $m): ?>
+        <li>
+            <?= e($m->getNama()) ?> — 
+            <?= e($m->buatEmailCivitas()) ?> 
+            (<?= e($helper->cekStatusEmail($m->buatEmailCivitas())) ?>)
+        </li>
+    <?php endforeach; ?>
+</ul>
 
 </body>
 </html>
